@@ -1,0 +1,80 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+
+# Virtual environments and local Python tooling
+.venv/
+venv/
+env/
+.python-version
+.uv-cache/
+
+# Packaging and build outputs
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test and coverage outputs
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+junit.xml
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Datasets and local data caches
+data/
+datasets/
+.cache/huggingface/
+.cache/torch/
+
+# Generated model and runtime artifacts
+artifacts/*
+!artifacts/.gitkeep
+checkpoints/
+weights/
+exports/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.engine
+*.plan
+
+# Benchmark, profiler, load-test, and report outputs
+benchmarks/
+profiles/
+reports/generated/
+*.nsys-rep
+*.ncu-rep
+*.trace.json
+locust_stats*.csv
+
+# Logs and runtime state
+logs/
+*.log
+*.pid
+
+# IDE and editor state
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

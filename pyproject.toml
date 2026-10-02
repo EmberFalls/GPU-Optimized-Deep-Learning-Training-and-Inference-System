@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling>=1.26,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "inferforge"
+version = "0.1.0"
+description = "Reproducible deep learning training, optimization, and inference engineering"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+# Add runtime dependencies when the corresponding implementation is introduced.
+# Hardware-specific groups require validated installation and runtime paths.
+[dependency-groups]
+dev = [
+    "mypy>=1.15,<2",
+    "pytest>=8.3,<10",
+    "ruff>=0.11,<1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/inferforge"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+show_error_codes = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-config --strict-markers -ra"
+markers = [
+    "unit: isolated behavior without external services or accelerators",
+    "integration: interactions between components or external services",
+    "smoke: reduced end-to-end validation",
+    "gpu: requires an accelerator and must be excluded from CPU-only CI",
+    "cuda: requires NVIDIA CUDA",
+    "xpu: requires Intel XPU",
+    "tensorrt: requires TensorRT and NVIDIA CUDA",
+]
